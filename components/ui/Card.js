@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6, //IOS
     shadowOpacity: 0.25, //IOS
     justifyContent: "center",
+    alignItems: "center",
     textAlign: "center",
   },
 });

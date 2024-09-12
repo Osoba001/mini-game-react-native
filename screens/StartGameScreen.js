@@ -17,7 +17,7 @@ import InstructionText from "../components/ui/InstructionText";
 const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState("");
 
-  const [width, height] = useWindowDimensions();
+  const {width, height} = useWindowDimensions();
 
   const numberInputHandler = (enteredText) => {
     // Remove any non-numeric characters
@@ -69,14 +69,12 @@ const StartGameScreen = ({ onPickNumber }) => {
           <Card>
             <InstructionText>Enter a Number</InstructionText>
             <TextInput
-              style={styles.numberInput}
-              maxLength={2}
-              keyboardType="number-pad"
-              //autoCapitalize="none" //relivant when the imput type is text
-              //autoCorrect={false}
-              onChange={numberInputHandler}
-              value={enteredNumber}
-            />
+                style={styles.numberInput}
+                maxLength={2}
+                keyboardType="number-pad"
+                onChangeText={numberInputHandler}  // Use onChangeText here
+                value={enteredNumber}
+              />
             <View style={styles.buttonsContatiner}>
               <View style={styles.buttonContainer}>
                 <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
@@ -104,8 +102,8 @@ const styles = StyleSheet.create({
   },
   rootContainer: {
     flex: 1,
-    //marginTop: deviceHeight < 380 ? 30 : 100,
-    alignItems: "center",
+    marginTop: 100,
+    alignItems: 'center',
   },
   numberInput: {
     height: 50,
